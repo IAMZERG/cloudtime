@@ -1,0 +1,7 @@
+<h1>Project</h1>
+<h3>Description: <%= @project.description %><h3>
+<ul>
+<% @timeperiods.each do |t| %>
+	<li>In: <%= t.created_at %>; Out: <%= t.updated_at %>; Note: <%= t.note %></li>
+<% end %>
+</ul>

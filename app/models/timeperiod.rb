@@ -1,0 +1,3 @@
+class Timeperiod < ActiveRecord::Base
+  belongs_to :project
+end

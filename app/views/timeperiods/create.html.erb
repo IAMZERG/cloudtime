@@ -1,0 +1,11 @@
+<h1>Project</h1>
+<h3>Description: <%= @project.description %><h3>
+
+<div>
+<%= form_for @project, timeperiods, url: project_timeperiods_path do |i| %>
+<%= i.text_field :note %>
+<%= i.submit %>
+
+<% end %>
+</div>
+

@@ -1,0 +1,13 @@
+<h1>Project</h1>
+<h3>Description: <%= @project.description %><h3>
+
+<div>
+<%= form_for :timeperiod, url: project_timeperiods_path do |i| %>
+<div>Press the button to clock in.</div>  
+<div>Work hard, but be sure to take regular breaks.</div>
+<div>Remember, I'm always ready whenever you need to take a break!</div>
+<%= i.submit %>
+
+<% end %>
+</div>
+

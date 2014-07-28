@@ -1,0 +1,17 @@
+<h1>Project</h1>
+<h3>Description: <%= @timeperiod.project.description %><h3>
+
+<div>
+<p>Taking a break, eh?  Good for you!</p>
+<p>Feel free to leave a note if you want as a memorial to your hard work.</p>
+<p>this is test code: timeperiod.project: <%= @timeperiod.project%>; timeperiod<%= @timeperiod %>
+<%= form_for [@timeperiod.project, @timeperiod], url: project_timeperiod_path(@timeperiod.project, @timeperiod)  do |i| %>
+	
+	<%= i.text_field :note %>
+	
+	<%= i.submit %>
+</div>
+<% end %>
+
+
+
