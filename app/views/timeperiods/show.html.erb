@@ -5,3 +5,6 @@
 	<li>In: <%= t.created_at %>; Out: <%= t.updated_at %>; Note: <%= t.note %></li>
 <% end %>
 </ul>
+
+<%= link_to "Clock Out", edit_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if @timeperiods.last.note.nil? %>
+<%= link_to "Clock In", new_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if not @timeperiods.last.note.nil? %>

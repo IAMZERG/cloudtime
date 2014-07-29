@@ -21,7 +21,7 @@ class TimeperiodsController < ApplicationController
 
 		project = Project.find(params[:project_id])
 
-		@timeperiod = project.timeperiods.create(params[timeperiod_params])
+		@timeperiod = project.timeperiods.create(params[:id])
 
 		respond_to do |format|
 		if @timeperiod.save
@@ -51,7 +51,8 @@ class TimeperiodsController < ApplicationController
 		@timeperiod = project.timeperiods.find(params[:id])
 
 		respond_to do |format|
-			if @timeperiod.update_attributes(timeperiod_params)
+			if @timeperiod.update_attributes(timeperiod_params)  
+			#spent 2-3 hrs. gettin above line right. timeperiod_params, not param[timeperiod_params]... DOH!
 				#1st argument of redirect_to is an array, in order to build the correct route to the nested resource timeperiod
 				format.html { redirect_to([@timeperiod.project, @timeperiod], :notice => 'Timeperiod was successfully updated.') }
 				format.xml  { head :ok }
