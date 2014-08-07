@@ -1,10 +1,9 @@
 <h1>My Projects</h1>
 
+
 <% @projects.each do |p| %>
 	<h4><%= p.description %></h4>
 	<div><%= link_to "Project", project_path(p) %></div>
-	
 <% end %>
-
 <hr>
 <div><%= link_to "New Project", new_project_path %></div>
