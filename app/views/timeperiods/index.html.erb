@@ -1,10 +1,12 @@
 <h1>Project Timesheet</h1>
-<h3>Description: <%= @project.description %><h3>
-<ul>
+<h3><%= @project.description %><h3>
+<div class="timeperiods-list">
 <% @timeperiods.each do |t| %>
-	<li>In: <%= t.created_at %>; Out: <%= t.updated_at %>; Note: <%= t.note %></li>
+	<div class="in">In: <%= t.created_at %></div> 
+	<div class="out">Out: <%= t.updated_at %></div>
+	<div class="note">Note: <%= t.note %></div>
 <% end %>
-</ul>
+</div>
 
 <%= link_to "Clock Out", edit_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if @timeperiods.last.note.nil? %>
 <%= link_to "Clock In", new_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if not @timeperiods.last.note.nil? %>

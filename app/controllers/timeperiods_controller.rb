@@ -52,7 +52,7 @@ class TimeperiodsController < ApplicationController
 
 		respond_to do |format|
 			if @timeperiod.update_attributes(timeperiod_params)  
-			#spent 2-3 hrs. gettin above line right. timeperiod_params, not param[timeperiod_params]... DOH!
+			#spent 2-3 hrs. gettin above line right. timeperiod_params, not params[timeperiod_params]... DOH!
 				#1st argument of redirect_to is an array, in order to build the correct route to the nested resource timeperiod
 				format.html { redirect_to([@timeperiod.project, @timeperiod], :notice => 'Timeperiod was successfully updated.') }
 				format.xml  { head :ok }
