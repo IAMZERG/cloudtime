@@ -3,6 +3,7 @@ class TimeperiodsController < ApplicationController
 	#http://blog.8thcolor.com/en/2011/08/nested-resources-with-independent-views-in-ruby-on-rails/
 
 	def new
+		@projects = Project.all
 		@project = Project.find(params[:project_id])
 		@timeperiods = @project.timeperiods.build
 	end

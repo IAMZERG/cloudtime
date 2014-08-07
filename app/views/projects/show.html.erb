@@ -6,7 +6,7 @@
 		<% @timeperiods.each do |t| if not @timeperiods.empty? %>
 			<li>In: <%= t.created_at %></li>
 			<li>Out: <%= t.updated_at if not t.note.nil? %></li>
-			<li><%= "Note: " if not t.note.nil? %><%= t.note %></li>
+			<li><%= "Note: " if not t.note.nil? %><%= t.note if not t.note.nil? %></li>
 			<% @total += (t.updated_at.to_i - t.created_at.to_i) %>
 
 		<% end %>
@@ -15,9 +15,11 @@
 <br>
 <div>Total time: <%= @total/60/60 %> hours.</div>
 <br>
-<%= link_to "Clock Out", edit_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if @timeperiods.last.note.nil? %>
-<%= link_to "Clock In", new_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if not @timeperiods.last.note.nil? %>	
-<hr>	
-<%= link_to "Project List", projects_path %>
+<% if @timeperiods.empty? %>
+	<%= link_to "Clock In", new_project_timeperiod_path(@project, @project.timeperiods.last)%>	
+<% else %>
+	<%= link_to "Clock Out", edit_project_timeperiod_path(@project, @project.timeperiods.last) %>
+<% end %>
+<hr>
 
 	

@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 	
 	def create
 		@project = Project.new(project_params)
+		@timeperiod = @project.timeperiods.new
 		
 		@project.save
 		
