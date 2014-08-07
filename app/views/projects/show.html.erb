@@ -8,13 +8,15 @@
 			<li>Out: <%= t.updated_at if not t.note.nil? %></li>
 			<li><%= "Note: " if not t.note.nil? %><%= t.note %></li>
 			<% @total += (t.updated_at.to_i - t.created_at.to_i) %>
-			<li><%= link_to "Clock in/out", [@timeperiods.last.project, @timeperiods.last] if not @timeperiods.nil?%></li>
 
 		<% end %>
 	<% end %>
 </ul>
 <br>
-<div>Total time: <%= @total/60/60 %> hours.</div>	
+<div>Total time: <%= @total/60/60 %> hours.</div>
+<br>
+<%= link_to "Clock Out", edit_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if @timeperiods.last.note.nil? %>
+<%= link_to "Clock In", new_project_timeperiod_path(@timeperiods.last.project, @timeperiods.last) if not @timeperiods.last.note.nil? %>	
 <hr>	
 <%= link_to "Project List", projects_path %>
 
