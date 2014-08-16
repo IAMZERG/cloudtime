@@ -5,14 +5,14 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %>
+  <%= render 'shim' %>
 </head>
 <body>
 
-<%= render 'layouts/hader' %>
+<%= render 'header' %>
 <%= yield %>
 <div class="container">
-	<%= render 'layouts/footer' %>
+	<%= render 'footer' %>
 </div>
 
 </body>
